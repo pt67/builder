@@ -5,6 +5,8 @@ ini_set('display_errors', E_ALL);
 
 include 'config/con.php';
 
+
+
 ?>
 
 
@@ -37,15 +39,24 @@ include 'config/con.php';
 <div class="">
 
 <h3>Created Pages</h3>
-
+<ul>
 <?php
 
+$query = mysqli_query($db, "SELECT * FROM builder_data") or ($db->error);
+
+
+while($p = mysqli_fetch_assoc($query)){
+
+
+echo "<li><a href=builds/". $p['title'].".php" .">".$p['title'] ."</a></li>";
+
+}
 
 
 
  ?>
 
-
+</ul>
 </div>
 
 </body>
